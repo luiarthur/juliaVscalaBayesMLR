@@ -4,17 +4,19 @@ using DataFrames, Distributions#, Gadfly
 println("Finished loading packages...")
 
 # Set variables:
-const n = 1000
-const k = 11 # with intercept
+#const n = 1000
+#const k = 20 # with intercept
+
+const n = parse(Int,ARGS[1])
+const k = parse(Int,ARGS[2])
 
 # generate data:
-const X = [ones(n) randn(n,k-1) * 5 + 3]
+const X = [ones(n) randn(n,k-1)]
 const betaTrue = Array(1:k)
 const y = X * betaTrue + randn(n)
 
 # precomputes:
 const XXi = inv(X'X)
-const s = 100
 const mle = XXi*X'y
 
 a = 1
