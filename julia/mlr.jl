@@ -1,11 +1,9 @@
 #blas_set_num_threads(1) # because small matrices
 println("Loading packages (20 seconds)...")
-using DataFrames, Distributions#, Gadfly
+using DataFrames, Distributions
 println("Finished loading packages...")
 
 # Set variables:
-#const n = 1000
-#const k = 20 # with intercept
 
 const n = parse(Int,ARGS[1])
 const k = parse(Int,ARGS[2])
@@ -80,6 +78,3 @@ println("ŝ²: ",  mean(ss[Int(B*.9):end]),"\n")
 
 println("Acceptance rate for β̂: ",accb/B)
 println("Acceptance rate for ŝ²:",accs/B)
-
-#plot(x=1:10000,y=ss[90000:99999], Geom.line,Theme( line_width=1pt, default_color=colorant"orange"))
-#plot(x=ss[90000:99999],Geom.histogram())
