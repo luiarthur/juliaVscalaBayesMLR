@@ -12,3 +12,10 @@ resolvers ++= Seq(
 )
 
 scalaVersion := "2.10.6"
+
+/*
+on citrisdance:
+
+export LD_PRELOAD=~/libs/openblas/lib/libopenblas.so; sbt
+
+ */
